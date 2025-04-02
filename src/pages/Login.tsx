@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/Header";
 import { useState } from "react";
 import Logo from "../img/logo.png";
 import Icon from "../img/icon.png"
