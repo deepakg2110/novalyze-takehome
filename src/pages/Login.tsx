@@ -1,32 +1,61 @@
 import React from "react";
 import Header from "../components/Header";
+import { useState } from "react";
+import Logo from "../img/logo.png";
+import Icon from "../img/icon.png"
+import GoogleSvg from "../img/icons8-google.svg";
+import { EyeSlashIcon, EyeIcon } from '@heroicons/react/24/solid'
 
 const Login: React.FC = () => {
+  const [ showPassword, setShowPassword ] = useState(false);
   return (
     <>
-    <Header />
-    <div className="flex h-screen items-center justify-center bg-gray-background-dark">
-      <div className="max-w-md rounded-xl bg-white p-6 shadow-md">
-        <h2 className="text-2xl font-bold text-gray-900">Login</h2>
-        <form className="mt-4">
-          <div className="mb-4">
-            <label className="block text-gray-700">Email</label>
-            <input
-              type="email"
-              className="w-full rounded-md border border-gray-300 p-2"
-              placeholder="Enter your email"
-            />
+    {/* <Header /> */}
+    <div className="login-main">
+      <div className="login-left">
+        <img src={Logo} className="" alt="" />
+      </div>
+      <div className="login-right">
+        <div className="login-right-container">
+          <div className="login-logo">
+            <img src={Icon} alt="" />
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Password</label>
-            <input
-              type="password"
-              className="w-full rounded-md border border-gray-300 p-2"
-              placeholder="Enter your password"
-            />
+          <div className="login-center">
+            <h2>Welcome back!</h2>
+            <p>Please enter your details</p>
+            <form>
+              <input type="email" placeholder="Email" />
+              <div className="pass-input-div">
+                <input type={showPassword ? "text" : "password"} placeholder="Password" />
+                {showPassword ? <EyeSlashIcon className="size-6"  onClick={() => {setShowPassword(!showPassword)}} /> : <EyeIcon className="size-6"  onClick={() => {setShowPassword(!showPassword)}} />}
+                
+              </div>
+
+              <div className="login-center-options">
+                <div className="remember-div">
+                  <input type="checkbox" id="remember-checkbox" />
+                  <label htmlFor="remember-checkbox">
+                    Remember for 30 days
+                  </label>
+                </div>
+                <a href="#" className="forgot-pass-link">
+                  Forgot password?
+                </a>
+              </div>
+              <div className="login-center-buttons">
+                <button type="button">Log In</button>
+                <button type="button">
+                  <img src={GoogleSvg} alt="" />
+                  Log In with Google
+                </button>
+              </div>
+            </form>
           </div>
-          <button className="w-full rounded-md bg-primary p-2 text-white">Login</button>
-        </form>
+
+          <p className="login-bottom-p">
+            Don't have an account? <a href="#">Sign Up</a>
+          </p>
+        </div>
       </div>
     </div>
     </>
