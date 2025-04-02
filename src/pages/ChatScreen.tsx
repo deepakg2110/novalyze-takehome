@@ -30,9 +30,9 @@ const dummyMessages: Message[] = [
 
 const ChatScreen: React.FC = () => {
   return (
-    <div className="h-full flex flex-col bg-gray-100">
+    <div className="flex flex-col h-screen bg-gray-100">
       {/* Chat Header */}
-      <div className="p-4 bg-white border-b border-gray-200">
+      <div className="p-4 bg-white border-b border-gray-200 flex-shrink-0">
         <h2 className="text-lg font-semibold text-gray-800">Chat Assistant</h2>
         <p className="text-sm text-gray-500">Online</p>
       </div>
@@ -54,9 +54,11 @@ const ChatScreen: React.FC = () => {
               }`}
             >
               <p>{message.text}</p>
-              <span className={`text-xs mt-1 block ${
-                message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'
-              }`}>
+              <span
+                className={`text-xs mt-1 block ${
+                  message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'
+                }`}
+              >
                 {message.timestamp}
               </span>
             </div>
@@ -65,7 +67,7 @@ const ChatScreen: React.FC = () => {
       </div>
 
       {/* Input Area */}
-      <div className="p-4 bg-white border-t border-gray-200">
+      <div className="p-4 bg-white border-t border-gray-200 flex-shrink-0 sticky bottom-0">
         <div className="flex items-center space-x-2">
           <input
             type="text"
